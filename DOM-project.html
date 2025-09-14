@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+
+         body {
+            font-family: Arial;
+        }
+
+        .subscribe-button {
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .is-subscribed {
+            background-color: lightgray;
+            color: #000000;
+        }
+
+        .inputStyle {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .style-button {
+            font-size: 15px;
+            padding: 12px 15px;
+            background-color: green;
+            color: #ffffff;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <p>YouTube Subscribe Button </p>
+
+    <button onclick="
+    subscribe();
+    " class="js-button-element subscribe-button">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 Shiping</p>
+    <p>Orders over $40 = FREE Shiping </p>
+
+    <input placeholder="Cost of order" class="js-cost-number inputStyle" onkeydown="
+    console.log(event.key);
+   keyDown(event);">
+
+    <button onclick="
+            pickNomber();
+            " class="style-button">Calculate</button>
+
+    <p class="js-calculate"></p>
+
+    <script>
+
+        function keyDown(event) {
+            if (event.key === 'Enter') {
+                pickNomber();
+            }
+        }
+
+        function subscribe() {
+            const buttonElement = document.querySelector('.js-button-element');
+
+            if (buttonElement.innerHTML === 'Subscribe') {
+
+                buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+            } else {
+                buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed')
+            }
+        }
+
+        function pickNomber() {
+            let inputNumber = document.querySelector('.js-cost-number');
+
+            let cost = Number(inputNumber.value);
+
+            if (cost > 0 && cost < 40) {
+                cost += 10;
+            }
+
+            document.querySelector('.js-calculate').innerHTML = `$${cost}`;
+        }
+    </script>
+
+</body>
+
+</html>

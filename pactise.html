@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prctise</title>
+</head>
+
+<body>
+
+    <!-- <button>9a</button>
+
+    <button class="Done">9b</button> -->
+
+
+
+    <button onclick="
+        clickButton('heads');
+        ">heads</button>
+
+    <button onclick="
+        clickButton('tails');
+        ">tails</button>
+
+    <p class="js-result"></p>
+
+
+
+    <input placeholder="Name" class="textName" onkeydown="
+    keyClick(event);
+    ">
+
+    <button onclick="
+    submitClick(name);
+    ">Submit</button>
+
+    <p class="name"></p>
+
+
+    <script>
+
+        function clickButton(choseButton) {
+            if (choseButton === 'heads') {
+                document.querySelector('.js-result').innerHTML = `You chose : ${choseButton}`;
+            } else {
+                document.querySelector('.js-result').innerHTML = `You chose : ${choseButton} `;
+            }
+        }
+
+        function keyClick(event) {
+            if (event.key === 'Enter') {
+                submitClick();
+            }
+        }
+
+        function submitClick(name) {
+            let inputName = document.querySelector('.textName');
+
+            let nameText = inputName.value;
+
+            document.querySelector('.name').innerHTML = `Your name is : ${nameText}`;
+        }
+
+
+
+
+
+        //    console.log( document.querySelector('button')); 
+
+        //    document.querySelector('.Done').innerHTML = '9b Done' ; 
+
+
+
+    </script>
+
+</body>
+
+</html>
